@@ -1,0 +1,81 @@
+:root {
+  --bg-dark: #0f172a;
+  --bg-light: #f8fafc;
+  --card-dark: #1e293b;
+  --card-light: #ffffff;
+  --text-dark: #e5e7eb;
+  --text-light: #1e293b;
+  --border: rgba(255, 255, 255, 0.1);
+}
+
+/* Base */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* Themes */
+body.dark {
+  background: var(--bg-dark);
+  color: var(--text-dark);
+}
+
+body.light {
+  background: var(--bg-light);
+  color: var(--text-light);
+}
+
+/* Grid Layout */
+.dashboard {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  grid-template-rows: 70px 1fr;
+  height: 100vh;
+}
+
+/* Header */
+.header {
+  grid-column: 1 / 3;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+/* Sidebar */
+.sidebar {
+  padding: 20px;
+  border-right: 1px solid var(--border);
+}
+
+/* Main */
+.main {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Cards */
+.card {
+  padding: 40px;
+  text-align: center;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--card-dark);
+  transition: background 0.3s;
+}
+
+body.light .card {
+  background: var(--card-light);
+}
+
+/* Button */
+button {
+  cursor: pointer;
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: none;
+  font-size: 14px;
+}

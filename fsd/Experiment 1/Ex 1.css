@@ -1,0 +1,11 @@
+form{
+    background-color: rgb(12, 186, 186);
+    border: 1px solid rgb(243, 29, 29);
+    padding: 15px;
+    border-radius: 15px;
+    text-align: center;
+}
+h2{
+    text-align: center;
+    color : brown;
+}
