@@ -1,0 +1,102 @@
+/* Experiment1_2_2.css - Styles for Dynamic Product Filter */
+:root{
+  --bg-1: #f5f7fb;
+  --card-bg: #ffffff;
+  --accent: #0b61d6;
+  --muted: #6b7280;
+  --success: #16a34a;
+  --danger: #ef4444;
+  --shadow: rgba(11,97,214,0.08);
+}
+
+*{ box-sizing: border-box; }
+html,body{ height:100%; margin:0; font-family: Inter, 'Segoe UI', Roboto, system-ui, Arial, sans-serif; background: linear-gradient(180deg,var(--bg-1),#eef4ff); }
+
+.container{
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 24px;
+}
+
+header.filter-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+header.filter-head h2{
+  margin:0;
+  color: #0f172a;
+  font-size: 1.4rem;
+}
+
+label{
+  color: var(--muted);
+  font-weight:600;
+  margin-right:8px;
+}
+
+select#kitty{
+  padding:8px 12px;
+  border-radius:8px;
+  border:1px solid #dfe8fb;
+  background:linear-gradient(180deg,#fff,#f7fbff);
+  font-weight:600;
+  color:#0f172a;
+  outline:none;
+  box-shadow: 0 6px 18px var(--shadow);
+}
+
+hr{ border:none; border-top:1px solid #eef3ff; margin: 18px 0; }
+
+.products{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.card{
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 10px 30px rgba(2,6,23,0.06);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+  border: 1px solid #f0f6ff;
+}
+
+.card:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 18px 50px rgba(2,6,23,0.08);
+}
+
+.card h4{ margin: 0 0 8px 0; color:#0b3d91; font-size:1.05rem; }
+.card p{ margin: 4px 0; color: #374151; }
+.card p.price{ font-weight:800; color: #0b3d91; }
+.card p.category{ color: var(--muted); font-size:0.92rem; }
+
+.empty-state{
+  grid-column: 1 / -1;
+  text-align:center;
+  color: var(--muted);
+  padding: 28px 8px;
+  background: linear-gradient(180deg,#fbfdff,#f8fbff);
+  border-radius: 10px;
+  border: 1px dashed #e6eef9;
+}
+
+@media (max-width: 900px){
+  .products{ grid-template-columns: repeat(2,1fr); }
+}
+@media (max-width: 560px){
+  .container{ padding: 16px; margin: 20px; }
+  header.filter-head{ flex-direction:column; align-items:flex-start; gap:8px; }
+  .products{ grid-template-columns: 1fr; }
+}
+
+/* Utility states used by JS */
+.hidden{ display:none !important; }
+
+/* small visual cue when filtering */
+.products.fading{ opacity: 0.45; transition: opacity 0.18s ease; }
